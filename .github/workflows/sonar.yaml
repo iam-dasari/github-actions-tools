@@ -30,3 +30,10 @@ jobs:
       - name: Build and Test
         working-directory: ecommerce-app
         run: mvn clean verify
+
+      - name: SonarQube Analysis
+        working-directory: ecommerce-app
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+            -Dsonar.token="${{ secrets.SONAR_TOKEN }}"
