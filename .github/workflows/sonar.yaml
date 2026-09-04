@@ -28,7 +28,9 @@ jobs:
         working-directory: ecommerce-app
         run: mvn clean verify
 
-      - name: Check SonarQube Secrets
+      - name: SonarQube Scan
+        working-directory: ecommerce-app
         run: |
-          echo "SONAR_HOST_URL configured: ${{ secrets.SONAR_HOST_URL != '' }}"
-          echo "SONAR_TOKEN configured: ${{ secrets.SONAR_TOKEN != '' }}"
+          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar \
+            -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+            -Dsonar.token="${{ secrets.SONAR_TOKEN }}"
