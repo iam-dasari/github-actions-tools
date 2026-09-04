@@ -1,4 +1,4 @@
-name: Java CI for SonarQube - Qualitygate setup
+name: Java CI for SonarQube - Qualitygate
 
 on:
   push:
