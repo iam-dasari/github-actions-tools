@@ -1,4 +1,4 @@
-name: Java CI for SonarQube
+name: Java CI for SonarQube - setup
 
 on:
   push:
