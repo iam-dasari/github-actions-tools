@@ -34,3 +34,11 @@ jobs:
           mvn sonar:sonar \
             -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
             -Dsonar.login="${{ secrets.SONAR_TOKEN }}"
+            
+      - name: SonarQube Scan & Quality Gate
+        working-directory: ecommerce-app
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+            -Dsonar.login="${{ secrets.SONAR_TOKEN }}" \
+            -Dsonar.qualitygate.wait=true
