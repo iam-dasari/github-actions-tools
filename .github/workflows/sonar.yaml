@@ -28,4 +28,5 @@ jobs:
           cache: maven
 
       - name: Build and Test
+        working-directory: ecommerce-app
         run: mvn clean verify
